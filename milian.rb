@@ -5,21 +5,21 @@
 class Milian < Formula
   desc "Milian project."
   homepage "https://keyrotate.com/"
-  version "1.0.1"
+  version "1.0.2"
   license "BSD3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/KeyRotate/milian/releases/download/v1.0.1/milian_1.0.1_darwin_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "57a302b8f37141ef576dc4c046c32db6a9a3c74f54bcbc9651ae41bcb5c3b253"
+      url "https://github.com/KeyRotate/milian/releases/download/v1.0.2/milian_1.0.2_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "128f3dfdd47168fc62a0600271438bbbc9be4bc3035356ccc1765fd64c6e91ee"
 
       def install
         bin.install "milian"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/KeyRotate/milian/releases/download/v1.0.1/milian_1.0.1_darwin_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "bc03c7d9ccb8565d587a83193def67234492ad95346760c214a6cc9dd39fbbdc"
+      url "https://github.com/KeyRotate/milian/releases/download/v1.0.2/milian_1.0.2_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "b6696168add50e44659f157242b9c2b67bb17021d49452c8ceff0bd7c462c008"
 
       def install
         bin.install "milian"
@@ -28,25 +28,25 @@ class Milian < Formula
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/KeyRotate/milian/releases/download/v1.0.2/milian_1.0.2_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "7085106b34414d0d9361d9d0f0b52583e4c683caf4755b584d7ad982d4664739"
+
+      def install
+        bin.install "milian"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/KeyRotate/milian/releases/download/v1.0.1/milian_1.0.1_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "a88bc991fa510ab48389ba731c0d27f1bfe96c5a8f0229a6f5cc426baa0645d8"
+      url "https://github.com/KeyRotate/milian/releases/download/v1.0.2/milian_1.0.2_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "cfc32ea89e7fef774a199d4f7f4460e5fbdc03d6c37d861a10478ebcb3db9bb2"
 
       def install
         bin.install "milian"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/KeyRotate/milian/releases/download/v1.0.1/milian_1.0.1_linux_armv6.tar.gz", using: CurlDownloadStrategy
-      sha256 "f08f99371d08b06d5e15a4e8b95000dcde15f5ea4a91cc9f9bd4a01397ca290a"
-
-      def install
-        bin.install "milian"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KeyRotate/milian/releases/download/v1.0.1/milian_1.0.1_linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "0b91b163cbcae82f4a88984ff88b883ff05925dc3f8f0b7702936e0eee1b1f85"
+      url "https://github.com/KeyRotate/milian/releases/download/v1.0.2/milian_1.0.2_linux_armv6.tar.gz", using: CurlDownloadStrategy
+      sha256 "3c8942e22917e2ad813f860d3132cf10e41b3bb7a21bbeb1fd7990f13816ce76"
 
       def install
         bin.install "milian"
